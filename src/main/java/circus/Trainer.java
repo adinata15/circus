@@ -6,7 +6,7 @@ import circus.animal.Duck;
 
 public class Trainer {
     public static void main(String[] args) {
-        Duck d = new Duck();
+        Duck d = new Duck("Donald");
         getToSpeak(d);
 
         Bird b = (Bird)d;  // upcasting
@@ -16,15 +16,8 @@ public class Trainer {
         getToSpeak(a);
 
         Duck d2 = (Duck) a; // downcasting
-        train(new Duck());
+        train(new Duck("Daisy"));
         // train(new circus.animal.Parrot());
-        Animal a2 = new Animal() {
-            @Override
-            public int getValue() {
-                return 0;
-            }
-        };
-//        circus.animal.Bird b2 = new circus.animal.Bird();
     }
 
     private static void getToSpeak(Animal animal) {
@@ -32,7 +25,9 @@ public class Trainer {
     }
 
     private static void train(Bird bird) {
-        Duck d = (Duck) bird;
-        d.swim();
+        if (bird instanceof Duck) {
+            Duck d = (Duck) bird;
+            d.swim();
+        }
     }
 }

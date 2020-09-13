@@ -1,10 +1,8 @@
 package circus.animal;
 
-import circus.Assets;
+import circus.Asset;
 
-public abstract class Animal implements Assets {
-    
-    public String speak(){
-        return null;
-    }
+public abstract class Animal implements Asset {
+    public String name;
+    public abstract String speak();
 }
